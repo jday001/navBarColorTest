@@ -10,16 +10,14 @@
 
 @interface DetailViewController ()
 
-#pragma mark - Private Class Properties
 @property (weak, nonatomic) IBOutlet UIImageView *backgroundImageView;
 @property (weak, nonatomic) IBOutlet UIImageView *foregroundImageView;
-
-#pragma mark - Private Class Methods
-- (void)setupRoundImageView;
-
 @end
 
+
+
 @implementation DetailViewController
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -34,14 +32,18 @@
     
     // set navBar color based on a pixel in the background image
     self.navigationController.navigationBar.translucent = YES;
-    self.navigationController.navigationBar.barTintColor = [self pixelColorInImage:self.backgroundImage
+    [self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
+    self.navigationController.navigationBar.shadowImage = [UIImage new];
+    
+    // TODO: if navBar has a background image, just set it to nil?
+    /*self.navigationController.navigationBar.barTintColor = [self pixelColorInImage:self.backgroundImage
                                                                                atX:0
                                                                                atY:0
-                                                                         withAlpha:1.0f];
+                                                                         withAlpha:0.2f];
+     */
 }
 
-
-#pragma mark - Private Class Methods
+    
 - (void)setupRoundImageView {
     
     // create layer mask for the image/button

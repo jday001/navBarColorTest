@@ -25,6 +25,7 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
+    // TODO: if navBar uses a background image, set it here
     self.navigationController.navigationBar.barTintColor = [UIColor grayColor];
     self.navigationController.navigationBar.translucent = NO;
 }
@@ -77,6 +78,7 @@
         // set image for detail view
         DetailViewController *detailVC = (DetailViewController *)[segue destinationViewController];
         detailVC.backgroundImage = self.imagesArray[selectedIndexPath.row];
+        detailVC.title = self.itemsArray[selectedIndexPath.row];
     }
 }
 
